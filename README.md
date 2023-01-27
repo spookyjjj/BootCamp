@@ -4,6 +4,7 @@
 Spring
 - [spring 개요](./note/text/Spring.md)
 - [spring data JPA](./note/text/Spring_jpa.md)
+
 ### 1-2주차
 React
 - [React 개요](./note/text/React.md)
@@ -14,11 +15,14 @@ React
 - Component By Function (벨로퍼트)
 - State관리 : [MobX](./note/text/React_MobX.md)
 - router사용
+
 ### 1-3주차
-![UML](./note/img/BootCampUML.png){: width="1250" height="750"}
+<img src="./note/img/BootCampUML.png" width="950" height="550"/>  
+
 ### 1-4주차
 - [개발환경 구성](./note/text/개발환경구성.md)
-- http://localhost:5173/board  
-  ![board](./note/img/board.png){: width="550" height="425"}  
-- http://localhost:5173/board/4ba60956-8d19-4fc4-adc2-e0317d9724c2  
-  ![board](./note/img/detail.png){: width="550" height="425"}  
+- `localhost:5173/board`  
+<img src="./note/img/board.png" width="500" height="390"/>  
+
+- `/localhost:5173/board/4ba60956-8d19-4fc4-adc2-e0317d9724c2`   
+<img src="./note/img/detail.png" width="500" height="390"/>  
