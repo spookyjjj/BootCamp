@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: bootcamp
+  config:
+    activate:
+      on-profile: default
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: BootCamp
