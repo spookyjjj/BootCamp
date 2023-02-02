@@ -1,0 +1,158 @@
+공부한것~ 정리할것~
+
+1. react의 context를 이용해서 user정보 이용하기
+:  이건선임님 자료 참조. 
+context로 감싸진 children에서는 useComtext를 통해 데이터에 접근 가능
+
+2. 마크다운에서 Expander 기능쓰기
+### Expander control Test
+<details>
+<summary>토글 접기/펼치기</summary>
+ : 이 안에는 html태그만 먹는다!!
+</details>
+
+3. cors에러 해결하기
+https://inpa.tistory.com/entry/WEB-%F0%9F%93%9A-CORS-%F0%9F%92%AF-%EC%A0%95%EB%A6%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-%F0%9F%91%8F
+back에서 -> Access-Control-Allow-Origin 헤더 세팅
+front에서 -> 프록시 사이트 이용
+
+4.
+<UpperContainer prop={props}>
+	<OtherContainer /> <- children : 하위태그 (props모름)
+</UpperContainer>
+
+vs
+
+<UpperContainer prop={props}/> -> 이 container안에 또 container가 존재 : 하위컴포넌트 (props안다~)
+
+5. url의 구조
+Protocol(Scheme) : (http, https)
+Host : 사이트 도메인 (www.domain.com)
+Port : 포트 번호 (:3000)
+Path : 사이트 내부 경로 (/board)
+Query string : 요청의 key와 value값 (?page=1)
+Fragment : 해시 태크 (#first)
++ Origin : Protocol + Host + Port (location.origin으로 알아낼 수 있음)
+
+6. .map(객체::new)
+http://www.tcpschool.com/java/java_lambda_concept
+메소드 레퍼런스
+
+7. .map vs .foreach
+: 안에 태그 들어가는건 map이다!
+: map -> 새로운 Ararry를 반환, return값이 있음..그래서 테이블 만들때는 map을 씀
+ <tr>
+          {obj.header.map((item) => {
+            return <th>{item}</th>;
+          })}
+ </tr>
+: foreach -> 리턴값을 보내지 않는 forEach(),  기존의 Ararry를 변경
+
+8. const {a} = dg 와 const [a] = dffs
+: export default IdName 일 때는 import IdName from '~/comp';
+: export type IdName import {IdName} from '~/comp';
+
+9. tsx와 ts의 차이
+: typeScript를 사용할 때는 .ts, react component의 경우 .tsx
+
+10. js라이브러리 중, lodash -> 객체데이터의 구조를 손쉽게 변환하게해줌
+: https://goddino.tistory.com/203
+
+11. 자바스크립트 비동기 (callback, promise, async/await)
+: https://velog.io/@pilyeooong/Promise%EC%99%80-asyncawait-%EC%B0%A8%EC%9D%B4%EC%A0%90
+
+12. front -> back api통신 axios vs fetch
+: https://velog.io/@eunbinn/Axios-vs-Fetch
+
+13. 잠시 해볼까 했던 next.js에서는 어떻게 axios?
+: https://velog.io/@sinclairr/next-swr-1
+: useSWR이라는 hook을 이용하면 좀 간단함
+useEffect(() => {
+  axios.get("/api/shops").then((res) => setShopList(res.data.shops));
+}, []);
+//아래처럼 사용가능
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+const { data, error } = useSWR("/api/shops", fetcher);
+
+14. 잠시 해볼까 했던 next.js에서 data fetching 방식? -> getStaticProps..
+: https://britny-no.tistory.com/45
+
+15. ★react에서 상위컴포넌트, 하위컴포넌트간 데이터 교환
+상위 -> 하위 : 걍 "props"로 전달
+하위 -> 상위 : 상위에 data와 data변경함수 만들어놓고 "함수"를 하위로 전달하여 하위에서 실행
+
+16. observable 없이 어케 useState사용가능?
+기본적으로 리액트에서 state를 사용하는거고,
+거기서 store만들어서 state와 action들을 좀더 관리하겠다 해서 생긴게 mobX임..
+그니깐 mobX의 observe, observable없어도 state바뀔때 리랜더링되는거 ok!
+그렇다면 컴포넌트 내부의 값들은 useState를 쓰고, 외부에서 여러 컴포넌트에 쓰일 값을 useContext쓰면 되는거 아님?
+합쳐지면 더 좋음 이런거인듯
+: https://dev-bomdong.tistory.com/30
+: https://ko.mobx.js.org/react-integration.html <- ★★이거 보면 좀 알겠음
+
+17. DDD에 대해 알기 -> aggregate, entitiy, vo!
+: aggregate의 일관성을 위해 EC를 쓴다의 의미? 이벤트를 이용한다는걸까?
+
+18. api와 endpoint
+- api : 두 시스템(어플리케이션)이 상호작용 할 수 있게 하는 프로토콜의 총 집합 -> front
+- endpoint : api가 서버에서 리소스에 접근할 수 있도록 가능하게 하는 'url' -> back
+
+19. 230110.md, 230111.md, 230113.md <- 이부분 정리하기
+---------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               깃 stash 
+- 깃 pull받고서 commit 없이 바로 push 했던 경험,,? how?
+: 어떤건지 local remote그림 그려서 좀 알아내기
+- optional -> optional을 다시 리턴하면 메서드 체이닝 가능
+- ?파라미터 -> 세종류
+- ...data
+: spread operator
+: https://kitez.tistory.com/category/Typescript
+- 어선셜 ?와 ! null을 허용하는가 마는가
+- generator함수 function*
+- ?? 연산자
+- 다중상속
+: https://bobbyhadz.com/blog/typescript-extend-multiple-interfaces
+- data as datamodule
+- typescript never타입
+- type, enum, interface
+- react &&연산자로 if문처럼 표현하기
+: https://itprogramming119.tistory.com/642
+- useCallback
+: https://cocoon1787.tistory.com/798
+- 에러읽기
+: https://articles09.tistory.com/5
+- JPA... ORM이란? 
+: 객체와 관계형 데이터베이스의 데이터를 자동으로 매핑
+: https://gmlwjd9405.github.io/2019/02/01/orm.html
+- CI/CD -> 지속적통합/지속적배포
+: 빌드/테스트 자동화, 배포 자동화.. AWS CodePipeline?
+CodePipeline은 사용자가 정의한 릴리스 프로세스 모델에 따라 코드가 변경될 때마다 코드를 빌드, 테스트 및 배포합니다.
+: https://seosh817.tistory.com/104
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
