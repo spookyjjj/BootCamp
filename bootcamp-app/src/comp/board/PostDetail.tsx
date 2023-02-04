@@ -14,50 +14,29 @@ const PostDetail = () => {
 
     return (
         <>
-            <span>deatail page</span>
-            <div className='container text-center'>
-            <div className="row">
-                <div className="col">
-                    title
-                </div>
-                <div className="col-6">
-                    {detail.title}
-                </div>
-            </div>
-                <div className="row">
-                    <div className="col">
-                        writer
-                    </div>
-                    <div className="col-6">
-                        {detail.user.name}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        view
-                    </div>
-                    <div className="col-6">
-                        {detail.views}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        regDate
-                    </div>
-                    <div className="col-6">
-                        {new Date(detail.regDate).toISOString().replace('T', ' ').replace(/\..*/, '')}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        content
-                    </div>
-                    <div className="col-6">
-                        {detail.content}
-                    </div>
-                </div>
-            </div>
-            <div className="col-md-3 my-5 float-end">
+            <table className="table">
+                <tbody>
+                        <tr>
+                            <th colSpan={2} style={{textAlign: "center"}}> {detail.title} </th>
+                        </tr>
+                    <tr>
+                        <td> 작성자 </td>
+                        <td style={{textAlign: "left"}}> {detail.user.name} </td>
+                    </tr>
+                    <tr>
+                        <td> 등록일 </td>
+                        <td style={{textAlign: "left"}}> {new Date(detail.regDate).toISOString().replace('T', ' ').replace(/\..*/, '')} </td>
+                    </tr>
+                    <tr>
+                        <td> 조회수 </td>
+                        <td style={{textAlign: "left"}}> {detail.views} </td>
+                    </tr>
+                    <tr>
+                        <td colSpan={2} style={{height: "400px"}}> {detail.content} </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div className="float-end">
                 <Link to="/board" className="btn btn-outline-primary me-2" role="button">목록</Link>
                 {/*todo*/}
                 <Link to="/" className="btn btn-primary me-2" role="button">수정</Link>

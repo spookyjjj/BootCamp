@@ -25,7 +25,7 @@ const BoardList = (props: any) => {
             <div className="float-end">
                 <Link to="/newpost" className="btn btn-outline-primary text-end" role="button">글쓰기</Link>
             </div>
-            <table className="table">
+            <table className="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">No.</th>

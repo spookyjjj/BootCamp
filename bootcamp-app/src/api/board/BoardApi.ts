@@ -1,6 +1,6 @@
 import axios from "axios";
 import {CreateBoard} from "../../vo/board/CreateBoard";
-import Board from "../../vo/board/Board";
+import {Board} from "../../vo/board/Board";
 
 class BoardApi {
     private static _instance: BoardApi;
