@@ -1,5 +1,5 @@
 #root {
-  max-width: 100vw;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -32,10 +32,16 @@ a:hover {
 }
 
 .cardContainer {
-  min-width: 60vw;
+  min-width: 1280px;
   min-height: 70vh;
   margin: 0;
   display: flex;
+  place-items: center;
+}
+
+.commentContainer {
+  max-width: 30vw;
+  margin: 0 auto;
   place-items: center;
 }
 

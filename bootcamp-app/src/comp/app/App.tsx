@@ -12,7 +12,6 @@ import SignUp from "../login/SignUp";
 import PostDetail from "../board/PostDetail";
 
 function App() {
-    // const [count, setCount] = useState(0);
 
     return (
         <>
@@ -44,12 +43,12 @@ function App() {
             <Container fluid className="px-3 py-2">
             <Routes>
                 <Route path="/" element={<Main />}></Route>
+                <Route path="/board/newpost" element={<NewPost />}></Route>
                 <Route path="/board/*" element={<PostDetail />}></Route>
                 <Route path="/board" element={<BoardList />}></Route>
                 <Route path="/qna" element={<QnA />}></Route>
                 <Route path="/faq" element={<FAQ />}></Route>
                 <Route path="/notice" element={<Notice />}></Route>
-                <Route path="/newpost" element={<NewPost />}></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/signup" element={<SignUp />}></Route>
             </Routes>

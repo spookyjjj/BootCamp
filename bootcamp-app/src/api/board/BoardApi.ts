@@ -1,6 +1,8 @@
 import axios from "axios";
-import {CreateBoard} from "../../vo/board/CreateBoard";
-import {Board} from "../../vo/board/Board";
+import {BoardCdo} from "../../aggregate/sdo/BoardCdo";
+import {Board} from "../../aggregate/Board";
+import {DetailPageRdo} from "../../aggregate/sdo/DetailPageRdo";
+import {CommentCdo} from "../../aggregate/sdo/CommentCdo";
 
 class BoardApi {
     private static _instance: BoardApi;
@@ -10,7 +12,7 @@ class BoardApi {
         }
         return this._instance;
     }
-    async createBoard(createCommand: CreateBoard): Promise<string> {
+    async createBoard(createCommand: BoardCdo): Promise<string> {
         const res = await axios.post('/api/board', createCommand);
         return res.data;
     }
@@ -19,8 +21,13 @@ class BoardApi {
         return res.data;
     }
 
-    async getBoard(boardId: string): Promise<Board> {
+    async getDetailPageData(boardId: string): Promise<DetailPageRdo> {
         const res = await axios.get(`/api/board/${boardId}`);
+        return res.data;
+    }
+
+    async createComment(createCommand: CommentCdo): Promise<string> {
+        const res = await axios.post(`/api/board/comment/create`, createCommand);
         return res.data;
     }
 }

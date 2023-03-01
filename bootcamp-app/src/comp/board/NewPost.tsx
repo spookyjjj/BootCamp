@@ -1,19 +1,20 @@
 import {Link, useNavigate} from "react-router-dom";
-import {CreateBoard, newCreateBoard} from "../../vo/board/CreateBoard";
+import {BoardCdo, newCreateBoard} from "../../aggregate/sdo/BoardCdo";
 import {useState} from "react";
 import BoardApi from "../../api/board/BoardApi";
 
 const NewPost = () => {
     const navigate = useNavigate();
-    const [formValue, setFormValue] = useState<CreateBoard>(newCreateBoard);
+    const [formValue, setFormValue] = useState<BoardCdo>(newCreateBoard);
     const boardApi = BoardApi.instance;
+
     const onclickSave = () => {
         console.log('쏴줄 createBoard값', formValue);
-        boardApi.createBoard(formValue)
-            .then(res => navigate(`/board/${res}`, {state: res}));
+        boardApi.createBoard(formValue).then(res => navigate(`/board/${res}`, {state: res}));
     }
+
     const onChangeValue = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const changeVal: CreateBoard = {...formValue, [event.target.id]: event.target.value}
+        const changeVal: BoardCdo = {...formValue, [event.target.id]: event.target.value}
         setFormValue(changeVal);
     }
 
@@ -26,7 +27,7 @@ const NewPost = () => {
                        value={formValue?.title}
                        onChange={(event)=> onChangeValue(event)}
                 />
-                <textarea className="form-control my-1" id="content" placeholder="내용을 입력하세요" style={{height: "400px"}}
+                <textarea className="form-control my-1" id="content" rows={10} placeholder="내용을 입력하세요"
                     value={formValue?.content}
                     onChange={(event) => onChangeValue(event)}
                 ></textarea>

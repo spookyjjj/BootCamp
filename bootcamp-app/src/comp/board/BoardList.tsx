@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import axios from "axios";
-import {Board} from '../../vo/board/Board';
+import {Board} from '../../aggregate/Board';
 import {Link, useNavigate} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import BoardApi from "../../api/board/BoardApi";
@@ -23,9 +23,9 @@ const BoardList = (props: any) => {
         // (forEach, find, map filter : js array 내부 function)
         <>
             <div className="float-end">
-                <Link to="/newpost" className="btn btn-outline-primary text-end" role="button">글쓰기</Link>
+                <Link to="/board/newpost" className="btn btn-outline-primary text-end" role="button">글쓰기</Link>
             </div>
-            <table className="table table-hover">
+            <table className="table">
                 <thead>
                 <tr>
                     <th scope="col">No.</th>
