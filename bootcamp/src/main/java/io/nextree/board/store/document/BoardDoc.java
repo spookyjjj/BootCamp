@@ -2,7 +2,7 @@ package io.nextree.board.store.document;
 
 import io.nextree.Util.IdName;
 import io.nextree.board.aggregate.Board;
-import io.nextree.board.aggregate.vo.Comment;
+import io.nextree.board.aggregate.Comment;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +27,6 @@ public class BoardDoc {
     private long modDate;
     private int views;
     private String content;
-    private List<Comment> comment;
 
     public BoardDoc(Board board) {
         this.boardId = board.getBoardId();
@@ -37,7 +36,6 @@ public class BoardDoc {
         this.modDate = board.getModDate();
         this.views = board.getViews();
         this.content = board.getContent();
-        this.comment = board.getComment();
     }
 
     public Board toBoard() {
@@ -48,8 +46,7 @@ public class BoardDoc {
                 this.regDate,
                 this.modDate,
                 this.views,
-                this.content,
-                this.comment
+                this.content
         );
     }
 }

@@ -1,8 +1,8 @@
 package io.nextree.board.store;
 
 import io.nextree.board.aggregate.Board;
+import io.nextree.board.store.document.BaordRepository;
 import io.nextree.board.store.document.BoardDoc;
-import io.nextree.board.store.document.BoardRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Comparator;
@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
 @Repository
 public class BoardStore {
     //
-    private final BoardRepository boardRepository;
+    private final BaordRepository boardRepository;
 
-    public BoardStore(BoardRepository boardRepository) {
+    public BoardStore(BaordRepository boardRepository) {
         //
         this.boardRepository = boardRepository;
     }
